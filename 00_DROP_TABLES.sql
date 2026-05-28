@@ -1,0 +1,52 @@
+--
+-- Corrected DROP TABLE script
+-- Must be executed in this order to respect foreign key constraints
+--
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS `Admin`;
+DROP TABLE IF EXISTS `AdvisorAdvisee`;
+DROP TABLE IF EXISTS `Attendance`;
+DROP TABLE IF EXISTS `CoursePrerequisite`;
+DROP TABLE IF EXISTS `Enrollment`;
+DROP TABLE IF EXISTS `FacultyDepartment`;
+DROP TABLE IF EXISTS `FacultyHistory`;
+DROP TABLE IF EXISTS `FullTimeFaculty`;
+DROP TABLE IF EXISTS `FullTimeGraduate`;
+DROP TABLE IF EXISTS `FullTimeUndergraduate`;
+DROP TABLE IF EXISTS `Graduate`;
+DROP TABLE IF EXISTS `Lab`;
+DROP TABLE IF EXISTS `Lecture`;
+DROP TABLE IF EXISTS `Login`;
+DROP TABLE IF EXISTS `MajorRequirement`;
+DROP TABLE IF EXISTS `MinorRequirement`;
+DROP TABLE IF EXISTS `Office`;
+DROP TABLE IF EXISTS `PartTimeFaculty`;
+DROP TABLE IF EXISTS `PartTimeGraduate`;
+DROP TABLE IF EXISTS `PartTimeUndergraduate`;
+DROP TABLE IF EXISTS `StatStaff`;
+DROP TABLE IF EXISTS `StudentCourseSectionHistory`;
+DROP TABLE IF EXISTS `StudentHold`;
+DROP TABLE IF EXISTS `StudentMajor`;
+DROP TABLE IF EXISTS `StudentMinor`;
+DROP TABLE IF EXISTS `TimeSlotDay`;
+DROP TABLE IF EXISTS `TimeSlotPeriod`;
+DROP TABLE IF EXISTS `Undergraduate`;
+DROP TABLE IF EXISTS `CourseSection`;
+DROP TABLE IF EXISTS `Course`;
+DROP TABLE IF EXISTS `Department`;
+DROP TABLE IF EXISTS `Faculty`;
+DROP TABLE IF EXISTS `Hold`;
+DROP TABLE IF EXISTS `Major`;
+DROP TABLE IF EXISTS `Minor`;
+DROP TABLE IF EXISTS `Period`;
+DROP TABLE IF EXISTS `Room`;
+DROP TABLE IF EXISTS `Semester`;
+DROP TABLE IF EXISTS `Student`;
+DROP TABLE IF EXISTS `TimeSlot`;
+DROP TABLE IF EXISTS `User`;
+DROP TABLE IF EXISTS `Building`;
+DROP TABLE IF EXISTS `Days`;
+
+SET FOREIGN_KEY_CHECKS = 1;
