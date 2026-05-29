@@ -11,25 +11,48 @@ class StatStaffDashboard extends BaseController {
     }
 
     public function render() {
-        $staffId = $_SESSION['user_id'];
-        
-        $stmt = $this->pdo->prepare("SELECT * FROM User WHERE userID = :id");
-        $stmt->execute(['id' => $staffId]);
-        $user = $stmt->fetch();
-?>
-    <div class="mt-4">
-        <h1>Welcome, <?= htmlspecialchars($user['firstName'] . ' ' . $user['lastName']) ?> (StatStaff)</h1>
-        
-        <h3>Academic Reports & Data</h3>
-        <ul class="list-group">
-            <li class="list-group-item"><a href="../admin/manage_table.php?table=Enrollment">View Enrollment Statistics</a></li>
-            <li class="list-group-item"><a href="../admin/manage_table.php?table=StudentCourseSectionHistory">View Course History Reports</a></li>
-            <li class="list-group-item"><a href="../admin/manage_table.php?table=Department">View Department Data</a></li>
-            <li class="list-group-item"><a href="../admin/manage_table.php?table=FacultyHistory">View Faculty Workload History</a></li>
-            <li class="list-group-item"><a href="../admin/manage_table.php?table=Course">View Course Catalog Data</a></li>
-        </ul>
+        // Define specific modules as requested
+        $modules = [
+            ['name' => 'View Students', 'table' => 'Student'],
+            ['name' => 'View Faculty', 'table' => 'Faculty'],
+            ['name' => 'View Departments', 'table' => 'Department'],
+            ['name' => 'View Sections', 'table' => 'CourseSection'],
+            ['name' => 'View Enrollments', 'table' => 'Enrollment'],
+            ['name' => 'Course Catalog', 'table' => 'Course'],
+            ['name' => 'Master Schedule', 'table' => 'TimeSlot'],
+            ['name' => 'View Holds', 'table' => 'Hold']
+        ];
+
+        // Map tables to specific view pages
+        $pageMap = [
+            'Student' => 'students.php',
+            'Faculty' => 'faculty.php',
+            'Department' => 'departments.php',
+            'CourseSection' => 'sections.php',
+            'Enrollment' => 'enrollments.php',
+            'Course' => 'catalog.php',
+            'TimeSlot' => 'master_schedule.php',
+            'Hold' => 'holds.php'
+        ];
+    ?>
+    <div class="container my-5">
+        <h1 class="fw-bold mb-2">Statistical Staff Dashboard</h1>
+        <p class="text-muted mb-4">View-only Administrative Portal.</p>
+
+        <div class="row">
+            <?php foreach ($modules as $module): ?>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm border-0 p-3">
+                        <div class="card-body">
+                            <h5 class="fw-bold"><?= htmlspecialchars($module['name']) ?></h5>
+                            <a href="views/<?= htmlspecialchars($pageMap[$module['table']]) ?>" class="btn btn-sm btn-outline-primary">View Data</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
-<?php
+    <?php
     }
 }
 

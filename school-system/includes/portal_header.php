@@ -3,23 +3,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>University Portal</title>
+    <link href="/public/assets/css/style.css" rel="stylesheet">
+    <title>University Portal | SUNY</title>
 </head>
-<body class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-        <div class="navbar-nav">
-            <a class="nav-link" href="../../public/index.php">Home</a>
-            <a class="nav-link" href="../../public/about.php">About</a>
-            <a class="nav-link" href="../../public/admissions.php">Admissions</a>
-            <a class="nav-link" href="../../public/programs.php">Programs</a>
-            <a class="nav-link" href="../../public/faculty.php">Faculty</a>
-            <a class="nav-link" href="../../public/research.php">Research</a>
-            <a class="nav-link" href="../../public/contact.php">Contact</a>
-            <a class="nav-link" href="../../public/news.php">News</a>
-            <a class="nav-link" href="../../public/events.php">Events</a>
-            <a class="nav-link" href="index.php">Portal Home</a>
-            <a class="nav-link" href="../../public/logout.php">Logout</a>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/public/index.php">SUNY PORTAL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portalNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="portalNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="/public/index.php">Public Site</a>
+                    <a class="nav-link" href="/portal/index.php">My Home</a>
+                    <a class="nav-link btn btn-outline-dark px-3 ms-lg-2" href="/public/logout.php">Logout</a>
+                </div>
+            </div>
         </div>
     </nav>
-    <hr>
+    <?php if (strpos($_SERVER['REQUEST_URI'], '/portal/') === false): ?>
+    <div class="container my-5">
+    <?php endif; ?>
