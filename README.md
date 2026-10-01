@@ -2,6 +2,8 @@
 
 A full-stack PHP web application for managing school data, featuring Role-Based Access Control (RBAC), secure authentication, and dynamic CRUD management for 46 tables.
 
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/jimmyu2foru18/suny-university?utm_source=readme&utm_medium=badge)
+
 ## 1. System Requirements
 - **PHP:** 8.0 or higher
 - **Database:** MySQL/MariaDB
